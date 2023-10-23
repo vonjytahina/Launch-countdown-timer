@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@700&display=swap');
+
+/* global styles */
+:root {
+  --grayish-blue: hsl(237, 18%, 59%);
+  --soft-red: hsl(345, 95%, 68%);
+  --white: hsl(0, 0%, 100%);
+  --dark-desaturated-blue: hsl(236, 21%, 26%);
+  --very-dark-blue: hsl(235, 16%, 14%);
+  --very-dark-mostly-black-blue: hsl(234, 17%, 12%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Red Hat Text', sans-serif;
+  /* font-size: 25px; */
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  height: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+  background-image: url("images/pattern-hills.svg"), url("images/bg-stars.svg"), linear-gradient(to bottom, #211d2b, 50%, #211d2b 100%);
+  background-size: 100%, 100%, 100%;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-position: 100% 100%, 100% 0%, 0% 0%;
+  padding-bottom: 125px;
+  position: relative;
+}
+
+.app {
+  margin: 140px auto 0px;
+  width: 695px;
+}
+
+.app h1 {
+  color: var(--white);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 26px;
+  margin-bottom: 100px;
+}
+
+.app #flipdown {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 150px);
+  grid-template-rows: repeat(1, 140px);
+  grid-column-gap: 30px;
+  height: 140px;
+}
+
+.app #flipdown .rotor-group {
+  position: relative;
+  float: none;
+  padding-right: 0px;
+  width: 150px;
+  height: 140px;
+  perspective: 1000px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.3);
+}
+
+
+.app #flipdown .rotor-group .rotor .rotor-bottom:after {
+  content: "";
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--very-dark-mostly-black-blue);
+  z-index: 100;
+}
+
+.app #flipdown .rotor-group .rotor:last-child .rotor-bottom:after {
+  content: "";
+  position: absolute;
+  top: -10%;
+  left: 90%;
+  width: 10px;
+  height: 10px;
+  background: var(--very-dark-mostly-black-blue);
+}
+
+.app #flipdown .rotor-group .rotor .rotor-top:after {
+  content: "";
+  position: absolute;
+  top: 90%;
+  left: -10%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--very-dark-mostly-black-blue);
+  z-index: 100;
+}
+
+.app #flipdown .rotor-group .rotor:last-child .rotor-top:after {
+  content: "";
+  position: absolute;
+  top: 90%;
+  left: 90%;
+  width: 10px;
+  height: 10px;
+  background: var(--very-dark-mostly-black-blue);
+}
+
+
+.flipdown.flipdown__theme-dark .rotor-top,
+.flipdown.flipdown__theme-dark .rotor-leaf-front {
+  color: var(--soft-red);
+  background-color: #2c2c44;
+  padding-right: 0px;
+}
+
+.flipdown.flipdown__theme-dark .rotor:last-child .rotor-leaf .rotor-leaf-front {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.flipdown.flipdown__theme-dark .rotor-bottom,
+.flipdown.flipdown__theme-dark .rotor-leaf-rear {
+  color: var(--soft-red);
+  background-color: var(--dark-desaturated-blue);
+  padding-right: 0px;
+}
+
+.flipdown .rotor {
+  float: left;
+  width: 50px;
+  height: 80px;
+  margin: 0 25px 0 0;
+  border-radius: 0px;
+  font-size: 3rem;
+  text-align: right;
+  perspective: 300px;
+  transform: scaleX(1.5) scaleY(1.7) translate(9px, 17px);
+}
+
+.app #flipdown .rotor-group .rotor:last-child {
+  text-align: left;
+}
+
+.app #flipdown .rotor-group:before,
+.app #flipdown .rotor-group:after {
+  display: none;
+}
+
+.flipdown.flipdown__theme-dark .rotor-group-heading:before {
+  display: none;
+}
+
+.labels {
+  margin-top: 20px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 150px);
+  grid-template-rows: repeat(1, 140px);
+  grid-column-gap: 30px;
+}
+
+.labels div {
+  width: 150px;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--grayish-blue);
+  font-size: 14px;
+  letter-spacing: 4px;
+}
+
+.social-network {
+  width: 140px;
+  margin: 170px auto 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.social-network svg {
+  cursor: pointer;
+}
+
+.social-network svg:hover path {
+  fill: var(--soft-red);
+}
+
+.attribution {
+  margin: 15px auto;
+}
+
+.attribution a {
+  font-size: 11px;
+}
+
+
+/* responsive */
+@media screen and (max-width: 700px) {
+  .app {
+    margin: 140px auto 0px;
+    width: 90%;
+    position: relative;
+  }
+
+  .app #flipdown {
+    width: 330px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 150px);
+  grid-template-rows: repeat(2, 140px);
+    grid-column-gap: 30px;
+    grid-row-gap: 50px;
+    height: auto;
+  }
+
+  .labels {
+    position: absolute;
+    top: 270px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 330px;
+    display: grid;
+    grid-template-columns: repeat(2, 150px);
+    grid-template-rows: repeat(1, 190px);
+    grid-column-gap: 30px;
+  }
+
+  .social-network {
+    margin: 150px auto 0px;
+  }
+}
+
+/* responsive */
+@media screen and (max-width: 467px) {
+  .labels {
+    position: absolute;
+    top: 300px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 330px;
+    display: grid;
+    grid-template-columns: repeat(2, 150px);
+    grid-template-rows: repeat(1, 190px);
+    grid-column-gap: 30px;
+  }
+
+  .social-network {
+    margin: 120px auto 0px;
+  }
+}
+
+/* responsive */
+@media screen and (max-width: 375px) {
+
+  .container {
+    height: 664px;
+    margin: 0 auto;
+    background-image: url("images/pattern-hills.svg"), url("images/bg-stars.svg"), linear-gradient(to bottom, #211d2b, 50%, #211d2b 100%);
+    background-size: 250%, 200%, 100%;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-position: 90% 100%, 100% 0%, 0% 0%;
+    padding-bottom: 125px;
+    position: relative;
+  }
+
+  .app h1 {
+    font-size: 20px;
+  }
+
+  .app #flipdown {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 150px);
+    grid-template-rows: repeat(1, 140px);
+    grid-column-gap: 30px;
+    height: 140px;
+    transform: scale(.45) translate(-55%, -100%);
+  }
+
+  .labels {
+   top: 37%;
+    width: 315px;
+    grid-template-columns: repeat(4, 70px);
+    grid-template-rows: repeat(1, 40px);
+    grid-column-gap: 11px;
+  }
+
+  .labels div {
+    width: 70px;
+    font-size: 8px;
+    letter-spacing: 2px;
+  }
+
+  .social-network {
+    margin: 180px auto 0px;
+  }
+
+}
